@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #kk {
+            width: 400px;
+            background-color: red;
+            color: azure;
+            border-radius: 10px;
+            box-shadow: 2px 4px 8px gray;
+            text-shadow: 4px 3px gray;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1 id="kk">Closures</h1>
+    </center>
+    <h2>Q. 01]</h2>
+    <h3>Ans:- </h3>
+    <pre style="color:red; font-size: 16px;">
+        "    function counter(){
+            var counter = 0;
+        
+            function IncreaseCounter() {
+                return counter += 1;
+            };
+        
+            return IncreaseCounter;
+        }
+        
+        var counter = Counter();
+        alert(counter());
+        alert(counter());
+        alert(counter());
+        alert(counter());"
+    </pre>
+    <h3>Output</h3>
+    <h4> 1 2 3 4 </h4>
+    <hr>
+    <br>
+    <h2>Q. 02]</h2>
+    <h3>Ans:- </h3>
+    <pre style="color:red; font-size: 16px;">
+        "let count = 0;
+(function () {
+  if (count === 0) {
+    let count = 1;
+    console.log(count); // What is logged?
+  }
+  console.log(count); // What is logged?
+})();"
+
+    </pre>
+    <h3>Output</h3>
+    <h4> 1 0</h4>
+    <hr>
+    <br>
+    <h2>Q. 03]</h2>
+    <h3>Ans:- </h3>
+    <pre style="color:red; font-size: 16px;">
+        "for (var i = 0; i < 3; i++) {
+            setTimeout(function log() {
+              console.log(i); // What is logged?
+            }, 1000);
+          }"
+
+</pre>
+    <h3>Output</h3>
+    <h4> 3  3   3</h4>
+    <hr>
+    <br>
+    <p>Q . 03] Write a code to calculate area of a rectangle using inner function. In this case outer function should
+        accept parameter length and inner function should accept parameter breadth.</p>
+    <h3>Ans:- </h3>
+    <pre style="color:red; font-size: 16px;">
+        function area(l){
+            function rectangle(b){
+                return l*b;
+            }
+            return rectangle(8);
+           }
+           console.log(area(8));
+    
+    </pre>
+    <h3>Output</h3>
+    <h4> 64</h4>
+    <hr>
+    <br>
+    <p>Q. 05] Take a variable in outer function and create an inner function to increase the counter every time it is called</p>
+    <h3>Ans:- </h3>
+    <pre style="color:red; font-size: 16px;">
+     function outerFun(r){
+        function innerFun(){
+            r++;
+            console.log(r);
+        }
+        innerFun();
+        innerFun();
+        innerFun();
+     }
+     outerFun(40);
+
+    </pre>
+    <h3>Output</h3>
+    <h4> 41   42    43</h4>
+    <hr>
+    <br>
+    <h2>Q. 06]</h2>
+    <h3>Ans:- </h3>
+    <pre style="color:red; font-size: 16px;">
+        "Print Output
+
+        var a = 12;
+        (function () {
+          alert(a);
+        })();"
+
+    </pre>
+    <h3>Output</h3>
+    <h4>12</h4>
+    <hr>
+    <br>
+    <h2> Q. 07]</h2>
+    <h3>Ans:- </h3>
+    <pre style="color:red; font-size: 16px;">
+        "var a = 10;
+        var x = (function () {
+          var a = 12;
+          return function () {
+            alert(a);
+          };
+        })();
+        x();"
+
+    </pre>
+    <h3>Output</h3>
+    <h4>12</h4>
+    <hr>
+    <br>
+    <h2>Q. 08] </h2>
+    <h3>Ans:- </h3>
+    <pre style="color:red; font-size: 16px;">
+        "var globalVar = ""xyz"";
+
+        (function outerFunc(outerArg) {
+            var outerVar = 'a';
+            
+            (function innerFunc(innerArg) {
+            var innerVar = 'b';
+            
+            console.log(
+                ""outerArg = "" + outerArg + ""\n"" +
+                ""innerArg = "" + innerArg + ""\n"" +
+                ""outerVar = "" + outerVar + ""\n"" +
+                ""innerVar = "" + innerVar + ""\n"" +
+                ""globalVar = "" + globalVar);
+            
+            })(456);
+        })(123);"
+
+    </pre>
+    <h3>Output</h3>
+    <h4> outerArg = 123
+        innerArg = 456
+        outerVar = a
+        innerVar = b
+        globalVar = xyz   </h4>
+    <hr>
+    <br>
+
+</body>
+
+</html>
